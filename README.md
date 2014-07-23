@@ -3,7 +3,7 @@ django-phonefields
 
 Install:
 ```
-pip install -e git+https://github.com/shantilabs/django-ab-testing#egg=ab_testing
+pip install git+https://github.com/shantilabs/django-ab-testing#egg=ab_testing
 ```
 
 settings.py
