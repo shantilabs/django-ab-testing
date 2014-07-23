@@ -1,4 +1,4 @@
-django-phonefields
+django-ab-testing
 ==================
 
 Install:
