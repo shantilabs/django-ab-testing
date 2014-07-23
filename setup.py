@@ -8,9 +8,9 @@ setup(
     author_email='maxim.oransky@gmail.com',
     url='https://github.com/shantilabs/django-ab-testing',
     packages=[
-        'ab_testing'
+        'ab_testing',
     ],
     package_data={
-        'ab_testing': ['templates/*'],
+        'ab_testing': ['templates/ab_testing/*'],
     },
 )
