@@ -11,6 +11,6 @@ setup(
         'ab_testing'
     ],
     package_data={
-        'public_id': ['templates/*'],
+        'ab_testing': ['templates/*'],
     },
 )
