@@ -1,0 +1,37 @@
+<script type="text/javascript">
+{% if yacounter_id %}
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter{{ yacounter_id }} = new Ya.Metrika({
+                    id:{{ yacounter_id }},
+                    webvisor:true,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    trackHash:true,
+                    params: {
+                        {% for k, v in request.session.ab_testing.items %}
+                        ab_testing_{{ k }}: "{{ v }}"{% if not forloop.last %},{% endif %}
+                        {% endfor %}
+                    }
+                });
+            } catch(e) { }
+        });
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+    function goal(s) {
+        yaCounter{{ yacounter_id }}.reachGoal(s);
+    }
+{% else %}
+    function goal(s) { console.log('goal', s); }
+{% endif %}
+</script>
