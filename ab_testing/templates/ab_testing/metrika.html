@@ -12,7 +12,7 @@
                     trackHash:true,
                     params: {
                         {% for k, v in request.session.ab_testing.items %}
-                        ab_testing_{{ k }}: "{{ v }}"{% if not forloop.last %},{% endif %}
+                        ab_testing_{{ k }}: "{{ v|escapejs }}"{% if not forloop.last %},{% endif %}
                         {% endfor %}
                     }
                 });
