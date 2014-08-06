@@ -29,7 +29,11 @@
         } else { f(); }
     })(document, window, "yandex_metrika_callbacks");
     function goal(s) {
-        yaCounter{{ yacounter_id }}.reachGoal(s);
+        try {
+            yaCounter{{ yacounter_id }}.reachGoal(s);
+        } catch (e) {
+            // adblock etc
+        }
     }
 {% else %}
     function goal(s) { console.log('goal', s); }
